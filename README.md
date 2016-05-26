@@ -6,6 +6,8 @@ Student proj - thermal printer related
 
 Please do `node server.js`
 
+Note: currently server runs on `:4000`, to publish please modify it according to your virtual server settings.
+
 
 # On RPI
 
