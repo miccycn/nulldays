@@ -3,7 +3,7 @@ var Iconv = require('iconv').Iconv;
 var converter = new Iconv('UTF-8', 'GB18030');
 
 var SerialPort = require('serialport').SerialPort;
-var port = new SerialPort('/dev/cu.usbserial-AL008SZL', {
+var port = new SerialPort('COM3', {
     baudRate: 9600
 });
 
@@ -18,7 +18,7 @@ port.on('open', function () {
 
 
 function recur() {
-    var r = request('http://localhost:4000/print', function (error, response, body) {
+    var r = request('http://nulldays.com/print', function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body); try {
                 var arr = JSON.parse(body.toString());
