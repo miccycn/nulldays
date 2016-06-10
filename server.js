@@ -16,6 +16,10 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/backup", function(req, res) {
+    res.sendFile(___dirname + "/data.json");
+});
+
 app.post("/create", function (req, res) {
     if (req.body.txt && req.body.txt.trim().length > 0) {
         push(req.body.txt);
@@ -56,7 +60,7 @@ http.listen(4000);
 
 
 
-var max_len = 500;
+var max_len = 5000;
 var data = [];
 
 try {

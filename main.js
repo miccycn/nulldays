@@ -23,7 +23,7 @@ function recur() {
             console.log(body); try {
                 var arr = JSON.parse(body.toString());
                 for (var t = 0; t < arr.length; t++) {
-                    var j = converter.convert(new Buffer(arr[t] + "\n- - - - - - - - - - - - - - - -\n\n"));
+                    var j = converter.convert(new Buffer(arr[t] + "\n-------------------------------\n\n"));
                     console.log(j);
                     port.write(j);
                 }
