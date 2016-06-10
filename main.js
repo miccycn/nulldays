@@ -2,8 +2,11 @@ var request = require('request');
 var Iconv = require('iconv').Iconv;
 var converter = new Iconv('UTF-8', 'GB18030');
 
+var param = process.argv[2] || "COM3";
+console.log("Using " + param);
+
 var SerialPort = require('serialport').SerialPort;
-var port = new SerialPort('COM3', {
+var port = new SerialPort(param, {
     baudRate: 9600
 });
 
