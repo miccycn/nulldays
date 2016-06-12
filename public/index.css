@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'weiyuanyue';
+    src:url('font.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Magallanes Cond';
+    src:url('LatinotypeMagallanesCond.otf');
+}
+html,body {
+    height:100%;
+    overflow-x: hidden;
+    height:100%;
+    padding: 0;
+    margin: 0;
+    font-size:10px;
+}
+body {
+    background: url("icon.gif") no-repeat;
+    background-position: 95% 30px;
+    background-size: 150px auto;
+}
+h1,h2,h3 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+.title {
+    margin: 1.7rem 1.5rem;
+}
+.title h2 {
+    font-family: 'Magallanes Cond';
+    font-size: 3.3rem;
+    line-height: 1.32em;
+}
+.title h3 {
+    font-family: 'weiyuanyue','Microsoft YaHei','Heiti SC';
+    margin-top:1rem;
+    font-size: 2.8rem;
+    line-height: 1.32em;
+}
+.word {
+    font-family: 'weiyuanyue','Microsoft YaHei','Heiti SC';
+    margin-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #e5004f;
+    font-size: 1.6rem;
+}
+.word time {
+    margin: 1.7rem;
+    font-size: 0.9em;
+    color:#afafaf;
+}
+.word p {
+    margin: .8rem 1.6rem 0;
+}
+input {
+    font-family: 'weiyuanyue','Microsoft YaHei','Heiti SC';
+    border: none;
+    display: block;
+    padding: 1.5rem 1.6rem 0.5rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #e5004f;
+    margin: 0px;
+    margin-bottom: 4rem;
+    width: 100%;
+    outline: none;
+    color:#afafaf;
+}
+@media screen and (min-width: 721px) {
+
+.break {
+    display:block
+}
+html,body {
+    background-size: 250px auto;
+    font-size: 15px;
+}
+
+}
