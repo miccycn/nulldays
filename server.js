@@ -56,8 +56,6 @@ io.on("connection", function (socket) {
 });
 
 
-http.listen(4000);
-
 
 
 var max_len = 5000;
@@ -100,3 +98,6 @@ function schedulesave() {
         fs.writeFileSync("data.json", JSON.stringify(data));
     }, 3000);
 }
+
+//PLEASE MODIFY THIS IF NEEDED
+http.listen(4000);
