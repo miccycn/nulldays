@@ -41,7 +41,7 @@ h1,h2,h3 {
     line-height: 1.32em;
 }
 .word {
-    font-family: 'weiyuanyue','Microsoft YaHei','Heiti SC';
+    font-family: 'Microsoft YaHei','Heiti SC';
     margin-top: .5rem;
     padding-bottom: .5rem;
     border-bottom: 1px solid #e5004f;
@@ -55,8 +55,14 @@ h1,h2,h3 {
 .word p {
     margin: .8rem 1.6rem 0;
 }
+.expand-transition {
+    transition: all .3s ease;
+}
+.expand-enter{
+    transform:translate3d(-100%,0,0);
+}
 input {
-    font-family: 'weiyuanyue','Microsoft YaHei','Heiti SC';
+    font-family: 'Microsoft YaHei','Heiti SC';
     border: none;
     display: block;
     padding: 1.5rem 1.6rem 0.5rem;
@@ -67,6 +73,7 @@ input {
     width: 100%;
     outline: none;
     color:#afafaf;
+    background-color: transparent;
 }
 @media screen and (min-width: 721px) {
 

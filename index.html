@@ -21,13 +21,12 @@
     	</h3>
     </div>
 
-
     <form target="dump" id="form" action="/create" method="post">
         <input name="txt" id="box" placeholder="比如 拆开快递以后捏完了里面的泡泡纸"></input>
     </form>
 
     <div id="board">
-        <div v-for="item in lists" class="word">
+        <div v-for="item in lists" class="word" transition="expand">
             <time v-text="item.time | timeFormat"></time>
             <p v-text="item.txt"></p>
         </div>
@@ -37,53 +36,6 @@
 
 	<script src="//cdn.bootcss.com/vue/1.0.24/vue.min.js"></script>
     <script src="//cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
-    
-    <script>
-    (function() {
-    	var cardList = new Vue({
-    		el: "#board",
-    		data: {
-    			lists: []
-    		},
-    		filters: {
-    			timeFormat: function(time) {
-    				var timing = new Date(time);
-    				return timing.getFullYear() + "年" + (timing.getMonth()+1) + "月" + timing.getDate() + "日 " + timing.toLocaleTimeString();
-    			}
-    		}
-    	})
-
-    	var form = document.getElementById("form");
-    	var input = document.getElementById("box");
-    	var inputTextBefore = "";
-
-    	input.onkeydown = function(event) {
-    		if (event.keyCode == 13) {
-    			var inputText = input.value.trim();
-    			if(inputText.length < 1 || inputText == inputTextBefore){
-    				return false;
-    			}
-    			if(inputText.length > 0 && inputText.length < 300){
-    				inputTextBefore = inputText;
-    				this.form.submit();
-    			}
-    			input.value = "";
-    			return false;
-    		}
-    	};
-
-    	var socket = io.connect(':4000');
-
-    	socket.on("data", function(item) {
-    		cardList.lists.push(item);
-    	});
-
-    	socket.on("new", function(lists) {
-    		cardList.lists = lists;
-    	});
-    })()
-    </script>
-
+    <script src="/index.js"></script>
 </body>
-
 </html>
