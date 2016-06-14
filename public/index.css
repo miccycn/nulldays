@@ -46,6 +46,7 @@ h1,h2,h3 {
     padding-bottom: .5rem;
     border-bottom: 1px solid #e5004f;
     font-size: 1.6rem;
+    word-wrap:break-word;
 }
 .word time {
     margin: 1.7rem;
@@ -65,14 +66,14 @@ input {
     font-family: 'Microsoft YaHei','Heiti SC';
     border: none;
     display: block;
-    padding: 1.5rem 1.6rem 0.5rem;
+    padding: 1.5rem 0 0.5rem;
+    text-indent: 1.6rem;
     font-size: 1.6rem;
     border-bottom: 1px solid #e5004f;
     margin: 0px;
     margin-bottom: 4rem;
     width: 100%;
     outline: none;
-    color:#afafaf;
     background-color: transparent;
 }
 @media screen and (min-width: 721px) {
