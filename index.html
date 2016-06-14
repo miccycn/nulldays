@@ -74,9 +74,8 @@
             }
             if (inputText.length > 0 && inputText.length < 300) {
                 inputTextBefore = inputText;
-                var that = this;
+                this.form.submit()
                 setTimeout(function(){
-                    that.form.submit()
                     input.value = ""
                 },0)
             }
