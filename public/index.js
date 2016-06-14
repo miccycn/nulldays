@@ -7,7 +7,7 @@ var cardList = new Vue({
     filters: {
         timeFormat: function(time) {
             var timing = new Date(time);
-            return timing.getFullYear() + "年" + (timing.getMonth() + 1) + "月" + timing.getDate() + "日 " + timing.toLocaleTimeString();
+            return timing.getFullYear() + "年" + (timing.getMonth() + 1) + "月" + timing.getDate() + "日 " + timing.getHours() + ":" + timing.getMinutes() + ":" + timing.getSeconds();
         }
     }
 })
