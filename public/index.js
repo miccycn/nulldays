@@ -47,6 +47,17 @@ socket.on("data", function(item) {
 });
 
 socket.on("new", function(lists) {
-    cardList.lists = lists;
+    var len = Math.min(lists.length, 10);
+    for (var i = 0; i < len; i++) {
+        ( function(a) {
+            setTimeout(function() {
+                if (a != len - 1) {
+                    cardList.lists.push(lists[a]);
+                } else {
+                    cardList.lists = lists;
+                }
+            }, 50 * a);
+        } )(i);
+    }
 });
 } )()
