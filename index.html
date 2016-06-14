@@ -46,7 +46,9 @@
         filters: {
             timeFormat: function(time) {
                 var timing = new Date(time);
-                return timing.getFullYear() + "年" + (timing.getMonth() + 1) + "月" + timing.getDate() + "日 " + timing.getHours() + ":" + timing.getMinutes() + ":" + timing.getSeconds();
+                var seconds = timing.getSeconds().toString();
+                seconds = (seconds.length == 1) ? ("0"+seconds) : seconds;
+                return timing.getFullYear() + "年" + (timing.getMonth() + 1) + "月" + timing.getDate() + "日 " + timing.getHours() + ":" + timing.getMinutes() + ":" + seconds;
             }
         }
     })
@@ -72,9 +74,13 @@
             }
             if (inputText.length > 0 && inputText.length < 300) {
                 inputTextBefore = inputText;
-                this.form.submit();
-                input.value = "";
+                var that = this;
+                setTimeout(function(){
+                    that.form.submit()
+                    input.value = ""
+                },0)
             }
+            return false;
         }
     };
 
