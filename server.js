@@ -10,9 +10,11 @@ var converter = new Iconv('UTF-8', 'GB18030');
 
 
 app.use(serveStatic(__dirname + "/public"));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
@@ -20,7 +22,7 @@ app.get("/backup", function(req, res) {
     res.sendFile(___dirname + "/data.json");
 });
 
-app.post("/create", function (req, res) {
+app.post("/create", function(req, res) {
     if (req.body.txt && req.body.txt.trim().length > 0) {
         push(req.body.txt);
         res.status(200).json({}).end();
@@ -29,7 +31,7 @@ app.post("/create", function (req, res) {
 
 var _pendingreq = undefined;
 
-app.get("/print", function (req, res) {
+app.get("/print", function(req, res) {
     var todo = [];
     for (var i = 0; i < data.length; i++) {
         if (!data[i].printed) {
@@ -42,7 +44,7 @@ app.get("/print", function (req, res) {
         if (_pendingreq) {
             try {
                 _pendingreq.status(200).json([]);
-            } catch (e) { }
+            } catch ( e ) {}
         }
         _pendingreq = res;
         return;
@@ -51,21 +53,19 @@ app.get("/print", function (req, res) {
     }
 });
 
-io.on("connection", function (socket) {
+io.on("connection", function(socket) {
     socket.emit("new", data);
 });
 
 
 
 
-var max_len = 5000;
+var max_len = 200;
 var data = [];
 
 try {
     data = JSON.parse(fs.readFileSync("data.json").toString());
-}
-catch (e) {
-}
+} catch ( e ) {}
 
 function push(txt) {
     var test = new Buffer(txt);
@@ -77,15 +77,13 @@ function push(txt) {
     if (data.length > max_len) {
         data.pop();
     }
-    try{
+    try {
         if (_pendingreq && !data[0].printed) {
             _pendingreq.status(200).json([txt]);
             data[0].printed = true;
             _pendingreq = undefined;
         }
-    }catch(e){
-        
-    }
+    } catch ( e ) {}
     io.emit("data", data[0]);
     schedulesave();
 }
@@ -94,7 +92,7 @@ function push(txt) {
 var timer = 0;
 function schedulesave() {
     clearTimeout(timer);
-    setTimeout(function () {
+    setTimeout(function() {
         fs.writeFileSync("data.json", JSON.stringify(data));
     }, 3000);
 }
